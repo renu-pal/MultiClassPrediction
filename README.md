@@ -8,31 +8,31 @@ Input
 =====
 The tool requires following inputs :
 
-- Feature matrix file (required)
+- **Feature matrix file (required)**
   - Tab-separated file.
   - Formatted with features as columns and samples as rows.
   
-- Target file (required)
+- **Target file (required)**
   - Tab-separated file
   - Must contain a column named either: target or Sample_Condition
 
-- Feature counts (k) (required)
+- **Feature counts (k) (required)**
   - Comma-separated list of numbers specifying how many top features to evaluate (e.g., 10,50,100).
   
-- Number of seeds (n) (default = 2)
+- **Number of seeds (n) (default = 2)**
 
-- Dataset label (required)
+- **Dataset label (required)**
   - A user-defined label for the experiment
   - Used only for storing results (not for modeling logic).
     
-- Model type (required)
+- **Model type (required)**
   - rf (RandomForest)
   - xgb (XGBoost)
   - etc (ExtraTreesClassifier)
   - lgbm (LightGBM)
   - tabpfn (TabPFN model)
     
-- Sampling strategy (required)
+- **Sampling strategy (required)**
   - No Sampling
   - Random OverSampling
   - SMOTE
@@ -41,7 +41,8 @@ The tool requires following inputs :
   - NearMiss (v2)
   - NearMiss (v3)
     
-- Grid Search (optional)
+- **Grid Search (optional)**
+  - Default : No 
   - Enables hyperparameter optimization
   - Can substantially increase runtime
 
@@ -49,7 +50,7 @@ Output
 ======
 The tool creates following output files : 
 
-  - MultiClass Metric score
+  - **MultiClass Metric score**
     - This is the main output file depicting different classification metric scores.
     - For each seed, feature count (k), class (or class pair), and evaluation type (OvR/OvO), it reports::
       - ROC AUC – class separation ability
@@ -60,7 +61,7 @@ The tool creates following output files :
       - MCC (balanced classification metric)
     - It also includes Macro averages across all classes.
 
-  - Diagnostic Plots
+  - **Diagnostic Plots**
     - A PNG file showing pairwise class comparisons.
     - For every class pair, it contains:
       - ROC curve
@@ -68,7 +69,7 @@ The tool creates following output files :
       - Predicted probability histogram
     - This helps visually assess how well the model distinguishes between classes.
 
-  - performance per feature plots
+  - **performance per feature plots**
     - This plot answers :
       "How does model performance change as I increase the number of selected features?"
     - A PNG file showing model performance across different numbers of selected features (k).
